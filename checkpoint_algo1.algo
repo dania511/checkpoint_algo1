@@ -1,0 +1,28 @@
+ALGORITHM check_phrase  
+      phrase:STRING;
+      vowels:STRING:="aeiouy";
+      i,j: INTEGER;
+      vowel:INTEGER:=0;
+      space:INTEGER:=0;
+      words:INTEGER:=0;
+BEGIN
+    REPEAT
+         Write('enter your phrase', phrase)
+         read(phrase)
+    UNTIL (phrase[phrase.length-1]=".")
+    FOR i FROM 0 TO phrase.length-2 STEP step  DO
+      FOR (j in vowels)   DO
+           IF (phrase[i]=j) THEN
+               vowel++;
+           ELSE IF (phrase[i]=" ") THEN
+                 space++;
+                 words=space+1;
+           END_IF
+       END_FOR
+    END_FOR
+      
+    Write('the number of words is', words);
+    Write('the number of vowels is', vowels);
+    Write('the length of the phrase is', phrase.length-1);
+
+END
